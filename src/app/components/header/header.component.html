@@ -1,1 +1,18 @@
-<p>header works!</p>
+<div class="title">
+  <div><h1>The Movie DB </h1></div>
+  <div>
+    <h3>Welcome.</h3>
+    <h4> Millions of movies, TV series and people. Explore now.</h4>
+  </div>
+</div>
+<div class="menu">
+
+  <p><a [routerLink]="['filmslist']">Films</a></p>
+  <p><a [routerLink]="['genres']">Genres</a></p>
+  <p><a [routerLink]="['personalProfile']">User Profile</a></p>
+  <p><a [routerLink]="['']">Home</a></p>
+
+</div>
+<div class="search">
+  <app-film-search></app-film-search>
+</div>

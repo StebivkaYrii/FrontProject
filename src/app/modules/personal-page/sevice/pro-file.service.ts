@@ -2,15 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
+import {IUser} from "../../../models/user.interface";
+import {urls} from "../../../configs/urls";
+
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class ProFileService {
 
   constructor(private httpClient: HttpClient) {
   }
 
-  // getAll(page: number = 1): Observable<IMovies> {
-  //   return this.httpClient.get()<IMovies>(url.movies, {params: {page}})
-  // }
+  getUserInfo(): Observable<IUser> {
+    return this.httpClient.get<IUser>(urls.user)
+  }
 }

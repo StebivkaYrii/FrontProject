@@ -1,0 +1,5 @@
+<div>
+  <ul class="container">
+    <li *ngFor="let genre of genres"><a [routerLink]="[genre.name,genre.id]">{{genre.name}}</a></li>
+  </ul>
+</div>

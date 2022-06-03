@@ -1,32 +1,46 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import {FormsModule} from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { MoviesComponent } from './components/movies/movies.component';
-import { MoviesListCardComponent } from './components/movies-list-card/movies-list-card.component';
-import { PosterPreviewComponent } from './components/poster-preview/poster-preview.component';
-import { StarsRatingComponent } from './components/stars-rating/stars-rating.component';
-import { MovieInfoComponent } from './components/movie-info/movie-info.component';
-import { GenreBadgeComponent } from './components/genre-badge/genre-badge.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
-import { HeaderComponent } from './components/header/header.component';
+import {AppComponent} from './app.component';
+import {HomePageComponent} from './components/home-page/home-page.component';
+import {PopularFilmsComponent} from './components/popular-films/popular-films.component';
+import {NowPlayingFilmsComponent} from './components/now-playing-films/now-playing-films.component';
+import {HeaderComponent} from './components/header/header.component';
+import {FilmSearchComponent} from './components/film-search/film-search.component';
+import {NowPlayingResolver} from "./components/now-playing-films/now-playing.resolver";
+import {PopularFilmResolver} from "./components/popular-films/popular-film.resolver";
+import {FilmDetailsResolver} from "./modules/films/components/film-details/film-details.resolver";
+import {DeactivatorGuard} from "./modules/films/components/film-details/guard/deactivator.guard";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
-    MoviesListCardComponent,
-    PosterPreviewComponent,
-    StarsRatingComponent,
-    MovieInfoComponent,
-    GenreBadgeComponent,
-    UserInfoComponent,
-    HeaderComponent
+    HomePageComponent,
+    PopularFilmsComponent,
+    NowPlayingFilmsComponent,
+    HeaderComponent,
+    FilmSearchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    NowPlayingResolver,
+    PopularFilmResolver,
+    FilmDetailsResolver,
+    DeactivatorGuard
+  ],
+  exports: [
+    PopularFilmsComponent
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

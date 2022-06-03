@@ -1,0 +1,5 @@
+<input type="text" [(ngModel)]='filmName' (input)="getFilms()" placeholder="film name">
+<button (click)="clearFilms()">clear</button>
+<div>
+  <p *ngFor="let film of films">{{film?.name}}</p>
+</div>

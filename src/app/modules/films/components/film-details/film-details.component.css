@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top:40px ;
+}
+img{
+  width: 700px;
+}
+.info{
+  box-sizing: border-box;
+  padding: 3%;
+  text-align: center;
+}
